@@ -4,7 +4,7 @@ import matrix.Matrix;
 
 public class MatrixStatisticsProvider<T extends Number> {
 
-    private Matrix<T> matrix;
+    private final Matrix<T> matrix;
 
     public MatrixStatisticsProvider(Matrix<T> matrix) {
         this.matrix = matrix;
