@@ -13,7 +13,7 @@ public abstract class AbstractMatrix<T extends Number> implements Matrix<T> {
         }
     }
 
-    public abstract Vector<T> createVector(int size);
+    protected abstract Vector<T> createVector(int size);
 
     @Override
     public int getRowCount() {
