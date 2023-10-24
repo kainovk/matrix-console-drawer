@@ -43,7 +43,8 @@ public class MatrixInitializer {
 
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < numCols; j++) {
-                matrix.set(i, j, values.get(i + j));
+                int index = (i * numCols) + j;
+                matrix.set(i, j, values.get(index));
             }
         }
     }

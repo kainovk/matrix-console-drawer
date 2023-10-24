@@ -35,7 +35,8 @@ public class SparseMatrix<T extends Number> extends AbstractMatrix<T> {
 
             for (int col = 0; col < numCols; col++) {
                 T value = this.get(row, col);
-                if (value.equals(Integer.valueOf(0))) {
+
+                if (value.doubleValue() == 0.00) {
                     result.append(" ".repeat(6 + 2));
                 } else {
                     formatValue(formatter, value);

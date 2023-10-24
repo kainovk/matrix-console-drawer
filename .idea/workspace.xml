@@ -5,34 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb1dc997-d27c-4b8b-8499-2eed431eecb8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/border/BorderDrawer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/border/PrettyBorderDrawer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/CommonMatrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/MatrixParameters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/SparseMatrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/AnsiEscapeCodesAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patterns-1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/patterns-1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matrix/AbstractMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/AbstractMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matrix/CommonMatrix.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matrix/SparseMatrix.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matrix/border/PrettyBorderDrawer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matrix/util/MatrixInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matrix/util/MatrixPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matrix/util/MatrixStatisticsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixStatisticsProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vector/AbstractVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vector/AbstractVector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vector/CommonVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vector/CommonVector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vector/SparseVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vector/SparseVector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vector/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vector/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/SparseMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/SparseMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixInitializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +26,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -73,6 +52,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -145,6 +125,11 @@
           <url>file://$PROJECT_DIR$/src/Main.java</url>
           <line>42</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
