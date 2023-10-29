@@ -1,13 +1,13 @@
 package matrix;
 
-import border.BorderDrawer;
+import matrix.drawer.Drawer;
 import vector.Vector;
 
 public abstract class AbstractMatrix<T extends Number> implements Matrix<T> {
 
     private final Vector<T>[] rows;
 
-    protected BorderDrawer borderDrawer;
+    private Drawer<T> drawer;
 
     protected AbstractMatrix(int numRows, int numCols) {
         rows = new Vector[numRows];
@@ -16,25 +16,37 @@ public abstract class AbstractMatrix<T extends Number> implements Matrix<T> {
         }
     }
 
-    protected AbstractMatrix(int numRows, int numCols, BorderDrawer borderDrawer) {
+    protected AbstractMatrix(int numRows, int numCols, Drawer<T> drawer) {
         this(numRows, numCols);
-        this.borderDrawer = borderDrawer;
+        this.drawer = drawer;
     }
 
     protected abstract Vector<T> createVector(int size);
 
-    public abstract void draw();
+    public String getElementToDraw(int row, int col) {
+        T value = get(row, col);
+
+        if (value instanceof Integer) {
+            return String.format("%d", value);
+        } else {
+            return String.format("%.2f", value);
+        }
+    }
+
+    public void draw() {
+        drawer.drawMatrix(this);
+    }
 
     public void drawBorders(int dx, int dy) {
         int width = rows[0].getSize();
         int height = rows.length;
-        borderDrawer.drawBorders(width, 2 + height, dx, dy);
+        drawer.drawBorders(width, 2 + height, dx, dy);
     }
 
     public void hideBorders() {
         int width = rows[0].getSize();
         int height = rows.length;
-        borderDrawer.hideBorders(2 + width, 2 + height, 0, 2 + height);
+        drawer.hideBorders(2 + width, 2 + height, 0, 2 + height);
     }
 
     @Override

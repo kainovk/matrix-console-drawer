@@ -1,6 +1,6 @@
 package matrix;
 
-import border.PrettyBorderDrawer;
+import matrix.drawer.ConsoleDrawer;
 import matrix.util.MatrixInitializer;
 import util.AnsiEscapeCodesAction;
 
@@ -50,14 +50,16 @@ public class MatrixUI<T extends Number> {
 
         if (matrix == null || !action.equals(lastAction)) {
             if (action.equals("1")) {
-                matrix = new CommonMatrix<>(numRows, numCols, new PrettyBorderDrawer());
+                matrix = new CommonMatrix<>(numRows, numCols, new ConsoleDrawer<>());
             } else {
-                matrix = new SparseMatrix<>(numRows, numCols, new PrettyBorderDrawer());
+                matrix = new SparseMatrix<>(numRows, numCols, new ConsoleDrawer<>());
             }
             MatrixInitializer.initialize(matrix, (int) (numRows * numCols * 0.75), maxValue);
             bordersActive = true;
             matrix.drawBorders(0, 2 + matrix.getRowCount());
+            System.out.print(AnsiEscapeCodesAction.getCursorUpCode(actionCount+1));
             matrix.draw();
+            System.out.print(AnsiEscapeCodesAction.getCursorDownCode(1));
         } else {
             bordersActive = !bordersActive;
             drawOrHideBorders(matrix, bordersActive);
