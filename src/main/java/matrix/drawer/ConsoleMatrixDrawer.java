@@ -10,6 +10,8 @@ public class ConsoleMatrixDrawer<T extends Number> implements Drawer<T> {
         int rowNum = matrix.getRowCount();
         int colNum = matrix.getColumnCount();
 
+        System.out.print(AnsiEscapeCodesAction.getCursorUpCode(rowNum + 1));
+
         for (int i = 0; i < rowNum; i++) {
             System.out.print(AnsiEscapeCodesAction.getCursorRightCode(1));
             for (int j = 0; j < colNum - 1; j++) {
@@ -21,6 +23,8 @@ public class ConsoleMatrixDrawer<T extends Number> implements Drawer<T> {
             System.out.print(AnsiEscapeCodesAction.getCursorDownCode(1));
             System.out.print(AnsiEscapeCodesAction.getCursorAtColumnCode(1));
         }
+
+        System.out.print(AnsiEscapeCodesAction.getCursorDownCode(1));
     }
 
     @Override

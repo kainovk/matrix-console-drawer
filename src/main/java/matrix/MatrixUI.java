@@ -1,6 +1,7 @@
 package matrix;
 
-import matrix.drawer.ConsoleDrawer;
+import matrix.drawer.ConsoleMatrixDrawer;
+import matrix.drawer.HtmlMatrixDrawer;
 import matrix.util.MatrixInitializer;
 import util.AnsiEscapeCodesAction;
 
@@ -25,11 +26,13 @@ public class MatrixUI<T extends Number> {
     }
 
     public void run() {
-        int actionCount = 3;
-        System.out.print("\n".repeat(numRows + actionCount));
-        System.out.println("1. Print COMMON_MATRIX");
-        System.out.println("2. Print SPARSE_MATRIX");
-        System.out.println("3. Exit");
+        int actionCount = 5;
+        System.out.print("\n".repeat(numRows + 3));
+        System.out.println("1. Print COMMON_MATRIX in console");
+        System.out.println("2. Print COMMON_MATRIX in HTML file");
+        System.out.println("3. Print SPARSE_MATRIX in console");
+        System.out.println("4. Print SPARSE_MATRIX in HTML file");
+        System.out.println("5. Exit");
 
         Scanner sc = new Scanner(System.in);
 
@@ -37,9 +40,9 @@ public class MatrixUI<T extends Number> {
             String action = sc.nextLine().trim();
             System.out.print(AnsiEscapeCodesAction.getClearUpperLineCode());
 
-            if (action.equals("1") || action.equals("2")) {
+            if (action.compareTo("1") >= 0 && action.compareTo("4") <= 0) {
                 handleMatrixAction(action, actionCount);
-            } else if (action.equals("3")) {
+            } else if (action.equals("5")) {
                 System.exit(0);
             }
         }
@@ -49,17 +52,26 @@ public class MatrixUI<T extends Number> {
         System.out.print(AnsiEscapeCodesAction.getCursorUpCode(actionCount + 1));
 
         if (matrix == null || !action.equals(lastAction)) {
-            if (action.equals("1")) {
-                matrix = new CommonMatrix<>(numRows, numCols, new ConsoleDrawer<>());
-            } else {
-                matrix = new SparseMatrix<>(numRows, numCols, new ConsoleDrawer<>());
+            switch (action) {
+                case "1":
+                    matrix = new CommonMatrix<>(numRows, numCols, new ConsoleMatrixDrawer<>());
+                    break;
+                case "2":
+                    matrix = new CommonMatrix<>(numRows, numCols, new HtmlMatrixDrawer<>());
+                    break;
+                case "3":
+                    matrix = new SparseMatrix<>(numRows, numCols, new ConsoleMatrixDrawer<>());
+                    break;
+                case "4":
+                    matrix = new SparseMatrix<>(numRows, numCols, new HtmlMatrixDrawer<>());
+                    break;
+                default:
+                    return;
             }
             MatrixInitializer.initialize(matrix, (int) (numRows * numCols * 0.75), maxValue);
             bordersActive = true;
             matrix.drawBorders(0, 2 + matrix.getRowCount());
-            System.out.print(AnsiEscapeCodesAction.getCursorUpCode(actionCount+1));
             matrix.draw();
-            System.out.print(AnsiEscapeCodesAction.getCursorDownCode(1));
         } else {
             bordersActive = !bordersActive;
             drawOrHideBorders(matrix, bordersActive);
