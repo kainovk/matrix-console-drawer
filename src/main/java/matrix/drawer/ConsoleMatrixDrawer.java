@@ -3,7 +3,7 @@ package matrix.drawer;
 import matrix.AbstractMatrix;
 import util.AnsiEscapeCodesAction;
 
-public class ConsoleDrawer<T extends Number> implements Drawer<T> {
+public class ConsoleMatrixDrawer<T extends Number> implements Drawer<T> {
 
     @Override
     public void drawMatrix(AbstractMatrix<T> matrix) {
@@ -32,7 +32,7 @@ public class ConsoleDrawer<T extends Number> implements Drawer<T> {
         System.out.print(border);
 
         System.out.print(AnsiEscapeCodesAction.getCursorAtColumnCode(1));
-        System.out.print(AnsiEscapeCodesAction.getCursorDownCode(height - 1));
+        System.out.print(AnsiEscapeCodesAction.getCursorDownCode(height + 1));
 
         System.out.println(border);
     }

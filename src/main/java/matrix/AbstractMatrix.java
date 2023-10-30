@@ -40,7 +40,7 @@ public abstract class AbstractMatrix<T extends Number> implements Matrix<T> {
     public void drawBorders(int dx, int dy) {
         int width = rows[0].getSize();
         int height = rows.length;
-        drawer.drawBorders(width, 2 + height, dx, dy);
+        drawer.drawBorders(width, height, dx, dy);
     }
 
     public void hideBorders() {
