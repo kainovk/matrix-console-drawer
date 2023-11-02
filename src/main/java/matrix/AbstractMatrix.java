@@ -23,6 +23,10 @@ public abstract class AbstractMatrix<T extends Number> implements Matrix<T> {
 
     protected abstract Vector<T> createVector(int size);
 
+    protected Drawer<T> getDrawer() {
+        return drawer;
+    }
+
     public String getElementToDraw(int row, int col) {
         T value = get(row, col);
 

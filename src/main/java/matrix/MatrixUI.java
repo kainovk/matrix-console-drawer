@@ -48,6 +48,23 @@ public class MatrixUI<T extends Number> {
         }
     }
 
+    public void runDecoratorExample() {
+        AbstractMatrix<Integer> commonMatrix = new CommonMatrix<>(3, 3, new ConsoleMatrixDrawer<>());
+        MatrixInitializer.initialize(commonMatrix, 7, 100);
+
+        System.out.println("Original matrix:");
+        commonMatrix.draw();
+        System.out.println();
+
+        EnumeratedMatrixDecorator<Integer> decorator = new EnumeratedMatrixDecorator<>(commonMatrix);
+        decorator.swapRows(1, 2);
+        decorator.swapColumns(0, 1);
+        AbstractMatrix<Integer> decoratedMatrix = decorator.getDecoratedMatrix();
+
+        System.out.println("Decorated matrix:");
+        decoratedMatrix.draw();
+    }
+
     private void handleMatrixAction(String action, int actionCount) {
         System.out.print(AnsiEscapeCodesAction.getCursorUpCode(actionCount + 1));
 
