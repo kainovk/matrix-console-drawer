@@ -1,15 +1,17 @@
 package matrix;
 
+import vector.Vector;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class EnumeratedMatrixDecorator<T extends Number> implements Matrix<T> {
 
-    private final Matrix<T> originalMatrix;
+    private final AbstractMatrix<T> originalMatrix;
     private final List<Integer> swappedRows;
     private final List<Integer> swappedColumns;
 
-    public EnumeratedMatrixDecorator(Matrix<T> originalMatrix) {
+    public EnumeratedMatrixDecorator(AbstractMatrix<T> originalMatrix) {
         this.originalMatrix = originalMatrix;
         this.swappedRows = new ArrayList<>();
         this.swappedColumns = new ArrayList<>();
@@ -68,5 +70,42 @@ public class EnumeratedMatrixDecorator<T extends Number> implements Matrix<T> {
             return swappedColumns.get((index % 2) == 0 ? index + 1 : index - 1);
         }
         return col;
+    }
+
+    public AbstractMatrix<T> getOriginalMatrix() {
+        return originalMatrix;
+    }
+
+    public AbstractMatrix<T> getDecoratedMatrix() {
+        return new AbstractMatrix<>(originalMatrix.getRowCount(), originalMatrix.getColumnCount(), originalMatrix.getDrawer()) {
+            @Override
+            public T get(int row, int col) {
+                row = getMappedRow(row);
+                col = getMappedColumn(col);
+                return originalMatrix.get(row, col);
+            }
+
+            @Override
+            public void set(int row, int col, T value) {
+                row = getMappedRow(row);
+                col = getMappedColumn(col);
+                originalMatrix.set(row, col, value);
+            }
+
+            @Override
+            public int getRowCount() {
+                return originalMatrix.getRowCount();
+            }
+
+            @Override
+            public int getColumnCount() {
+                return originalMatrix.getColumnCount();
+            }
+
+            @Override
+            protected Vector<T> createVector(int size) {
+                return originalMatrix.createVector(size);
+            }
+        };
     }
 }
