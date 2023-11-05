@@ -78,6 +78,7 @@ public class EnumeratedMatrixDecorator<T extends Number> implements Matrix<T> {
 
     public AbstractMatrix<T> getDecoratedMatrix() {
         return new AbstractMatrix<>(originalMatrix.getRowCount(), originalMatrix.getColumnCount(), originalMatrix.getDrawer()) {
+
             @Override
             public T get(int row, int col) {
                 row = getMappedRow(row);
@@ -90,16 +91,6 @@ public class EnumeratedMatrixDecorator<T extends Number> implements Matrix<T> {
                 row = getMappedRow(row);
                 col = getMappedColumn(col);
                 originalMatrix.set(row, col, value);
-            }
-
-            @Override
-            public int getRowCount() {
-                return originalMatrix.getRowCount();
-            }
-
-            @Override
-            public int getColumnCount() {
-                return originalMatrix.getColumnCount();
             }
 
             @Override
