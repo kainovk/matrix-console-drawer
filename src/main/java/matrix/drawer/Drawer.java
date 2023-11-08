@@ -9,4 +9,6 @@ public interface Drawer<T extends Number> {
     void drawBorders(int width, int height, int dx, int dy);
 
     void hideBorders(int width, int height, int dx, int dy);
+
+    void moveCursor(int dx, int dy);
 }

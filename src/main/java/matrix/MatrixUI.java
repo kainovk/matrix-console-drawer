@@ -65,6 +65,51 @@ public class MatrixUI<T extends Number> {
         decoratedMatrix.draw();
     }
 
+    public void runHorizontalMatrixCompositeExample() {
+        System.out.println("\n".repeat(15));
+        AbstractMatrix<Integer> commonMatrix11 = new CommonMatrix<>(2, 2, new ConsoleMatrixDrawer<>());
+        MatrixInitializer.initialize(commonMatrix11, 4, 2);
+
+        AbstractMatrix<Integer> commonMatrix12 = new CommonMatrix<>(3, 4, new ConsoleMatrixDrawer<>());
+        MatrixInitializer.initialize(commonMatrix12, 12, 4);
+
+        AbstractMatrix<Integer> commonMatrix13 = new CommonMatrix<>(3, 1, new ConsoleMatrixDrawer<>());
+        MatrixInitializer.initialize(commonMatrix13, 3, 6);
+
+        VerticalMatrixGroup<Integer> verticalMatrixGroup = new VerticalMatrixGroup<>(8, 4);
+        verticalMatrixGroup.addMatrix(commonMatrix11);
+        verticalMatrixGroup.addMatrix(commonMatrix12);
+        //verticalMatrixGroup.addMatrix(commonMatrix13);
+        HorizontalMatrixGroup<Integer> horizontalMatrixGroup1 = new HorizontalMatrixGroup<>(verticalMatrixGroup);
+
+
+        AbstractMatrix<Integer> commonMatrix21 = new CommonMatrix<>(4, 2, new ConsoleMatrixDrawer<>());
+        MatrixInitializer.initialize(commonMatrix21, 8, 8);
+
+        AbstractMatrix<Integer> commonMatrix22 = new CommonMatrix<>(3, 2, new ConsoleMatrixDrawer<>());
+        MatrixInitializer.initialize(commonMatrix22, 6, 10);
+
+        verticalMatrixGroup = new VerticalMatrixGroup<>(7, 2);
+        verticalMatrixGroup.addMatrix(commonMatrix21);
+        verticalMatrixGroup.addMatrix(commonMatrix22);
+        HorizontalMatrixGroup<Integer> horizontalMatrixGroup2 = new HorizontalMatrixGroup<>(verticalMatrixGroup);
+
+
+        AbstractMatrix<Integer> commonMatrix31 = new CommonMatrix<>(1, 1, new ConsoleMatrixDrawer<>());
+        MatrixInitializer.initialize(commonMatrix31, 1, 12);
+
+        VerticalMatrixGroup<Integer> verticalMatrixGroupMain = new VerticalMatrixGroup<>(7, 8);
+        verticalMatrixGroupMain.addMatrix(horizontalMatrixGroup1);
+        //verticalMatrixGroupMain.addMatrix(horizontalMatrixGroup2);
+        //verticalMatrixGroupMain.addMatrix(commonMatrix31);
+
+        verticalMatrixGroupMain.draw();
+
+        Scanner sc = new Scanner(System.in);
+        sc.next();
+        //System.out.println(AnsiEscapeCodesAction.getCursorDownCode(15));
+    }
+
     private void handleMatrixAction(String action, int actionCount) {
         System.out.print(AnsiEscapeCodesAction.getCursorUpCode(actionCount + 1));
 

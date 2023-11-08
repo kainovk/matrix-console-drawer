@@ -41,4 +41,12 @@ public class AnsiEscapeCodesAction {
     public static String getCursorAtColumnCode(int n) {
         return CURSOR_MOVE + n + "G";
     }
+
+    public static String saveCurrentCursorPosition() {
+        return CURSOR_MOVE + "s";
+    }
+
+    public static String restoreSavedCursorPosition() {
+        return CURSOR_MOVE + "u";
+    }
 }

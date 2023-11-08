@@ -52,6 +52,21 @@ public class ConsoleMatrixDrawer<T extends Number> implements Drawer<T> {
         System.out.print(AnsiEscapeCodesAction.getCursorDownCode(height));
     }
 
+    @Override
+    public void moveCursor(int dx, int dy) {
+        if (dx > 0) {
+            System.out.print(AnsiEscapeCodesAction.getCursorRightCode(dx));
+        } else if (dx < 0) {
+            System.out.print(AnsiEscapeCodesAction.getCursorLeftCode(-dx));
+        }
+
+        if (dy > 0) {
+            System.out.print(AnsiEscapeCodesAction.getCursorUpCode(dy));
+        } else if (dy < 0) {
+            System.out.print(AnsiEscapeCodesAction.getCursorDownCode(-dy));
+        }
+    }
+
     private String createHorizontalBorderString(int width, int dx) {
         StringBuilder border = new StringBuilder();
 

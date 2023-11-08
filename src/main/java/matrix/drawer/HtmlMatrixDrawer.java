@@ -64,6 +64,11 @@ public class HtmlMatrixDrawer<T extends Number> implements Drawer<T> {
         }
     }
 
+    @Override
+    public void moveCursor(int dx, int dy) {
+        // TODO
+    }
+
     private Document loadDocument() throws IOException {
         File htmlFile = new File(HTML_FILE_NAME);
         if (htmlFile.exists()) {

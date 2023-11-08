@@ -5,9 +5,13 @@ import vector.Vector;
 
 public abstract class AbstractMatrix<T extends Number> implements Matrix<T> {
 
-    private final Vector<T>[] rows;
+    protected Vector<T>[] rows;
 
     private Drawer<T> drawer;
+
+    protected AbstractMatrix(Drawer<T> drawer) {
+        this.drawer = drawer;
+    }
 
     protected AbstractMatrix(int numRows, int numCols) {
         rows = new Vector[numRows];

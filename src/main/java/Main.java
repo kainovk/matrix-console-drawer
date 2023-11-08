@@ -8,6 +8,6 @@ public class Main {
         int maxValue = 100;
         MatrixParameters<Integer> params = new MatrixParameters<>(numRows, numCols, maxValue);
 
-        new MatrixUI<>(params).run();
+        new MatrixUI<>(params).runHorizontalMatrixCompositeExample();
     }
 }
