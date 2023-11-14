@@ -1,5 +1,6 @@
 package matrix;
 
+import matrix.decorator.EnumeratedMatrixDecorator;
 import matrix.drawer.ConsoleMatrixDrawer;
 import matrix.drawer.HtmlMatrixDrawer;
 import matrix.util.MatrixInitializer;
@@ -67,47 +68,47 @@ public class MatrixUI<T extends Number> {
 
     public void runHorizontalMatrixCompositeExample() {
         System.out.println("\n".repeat(15));
-        AbstractMatrix<Integer> commonMatrix11 = new CommonMatrix<>(2, 2, new ConsoleMatrixDrawer<>());
+        DrawableMatrix<Integer> commonMatrix11 = new CommonMatrix<>(2, 2, new ConsoleMatrixDrawer<>());
         MatrixInitializer.initialize(commonMatrix11, 4, 2);
 
-        AbstractMatrix<Integer> commonMatrix12 = new CommonMatrix<>(3, 4, new ConsoleMatrixDrawer<>());
+        DrawableMatrix<Integer> commonMatrix12 = new CommonMatrix<>(3, 4, new ConsoleMatrixDrawer<>());
         MatrixInitializer.initialize(commonMatrix12, 12, 4);
 
-        AbstractMatrix<Integer> commonMatrix13 = new CommonMatrix<>(3, 1, new ConsoleMatrixDrawer<>());
+        DrawableMatrix<Integer> commonMatrix13 = new CommonMatrix<>(3, 1, new ConsoleMatrixDrawer<>());
         MatrixInitializer.initialize(commonMatrix13, 3, 6);
 
-        VerticalMatrixGroup<Integer> verticalMatrixGroup = new VerticalMatrixGroup<>(8, 4);
-        verticalMatrixGroup.addMatrix(commonMatrix11);
-        verticalMatrixGroup.addMatrix(commonMatrix12);
-        //verticalMatrixGroup.addMatrix(commonMatrix13);
-        HorizontalMatrixGroup<Integer> horizontalMatrixGroup1 = new HorizontalMatrixGroup<>(verticalMatrixGroup);
+        VerticalMatrixGroup<Integer> verticalMatrixGroup1 = new VerticalMatrixGroup<>();
+        verticalMatrixGroup1.addMatrix(commonMatrix11);
+        verticalMatrixGroup1.addMatrix(commonMatrix12);
+        verticalMatrixGroup1.addMatrix(commonMatrix13);
+        HorizontalMatrixGroup<Integer> horizontalMatrixGroup1 = new HorizontalMatrixGroup<>(verticalMatrixGroup1);
 
 
-        AbstractMatrix<Integer> commonMatrix21 = new CommonMatrix<>(4, 2, new ConsoleMatrixDrawer<>());
+        DrawableMatrix<Integer> commonMatrix21 = new CommonMatrix<>(4, 2, new ConsoleMatrixDrawer<>());
         MatrixInitializer.initialize(commonMatrix21, 8, 8);
 
-        AbstractMatrix<Integer> commonMatrix22 = new CommonMatrix<>(3, 2, new ConsoleMatrixDrawer<>());
+        DrawableMatrix<Integer> commonMatrix22 = new CommonMatrix<>(3, 2, new ConsoleMatrixDrawer<>());
         MatrixInitializer.initialize(commonMatrix22, 6, 10);
 
-        verticalMatrixGroup = new VerticalMatrixGroup<>(7, 2);
-        verticalMatrixGroup.addMatrix(commonMatrix21);
-        verticalMatrixGroup.addMatrix(commonMatrix22);
-        HorizontalMatrixGroup<Integer> horizontalMatrixGroup2 = new HorizontalMatrixGroup<>(verticalMatrixGroup);
+        VerticalMatrixGroup<Integer> verticalMatrixGroup2 = new VerticalMatrixGroup<>();
+        verticalMatrixGroup2.addMatrix(commonMatrix21);
+        verticalMatrixGroup2.addMatrix(commonMatrix22);
+        DrawableMatrix<Integer> horizontalMatrixGroup2 = new HorizontalMatrixGroup<>(verticalMatrixGroup2);
 
 
-        AbstractMatrix<Integer> commonMatrix31 = new CommonMatrix<>(1, 1, new ConsoleMatrixDrawer<>());
+        DrawableMatrix<Integer> commonMatrix31 = new CommonMatrix<>(1, 1, new ConsoleMatrixDrawer<>());
         MatrixInitializer.initialize(commonMatrix31, 1, 12);
 
-        VerticalMatrixGroup<Integer> verticalMatrixGroupMain = new VerticalMatrixGroup<>(7, 8);
+        VerticalMatrixGroup<Integer> verticalMatrixGroupMain = new VerticalMatrixGroup<>();
         verticalMatrixGroupMain.addMatrix(horizontalMatrixGroup1);
-        //verticalMatrixGroupMain.addMatrix(horizontalMatrixGroup2);
-        //verticalMatrixGroupMain.addMatrix(commonMatrix31);
+        verticalMatrixGroupMain.addMatrix(horizontalMatrixGroup2);
+        verticalMatrixGroupMain.addMatrix(commonMatrix31);
 
         verticalMatrixGroupMain.draw();
 
         Scanner sc = new Scanner(System.in);
         sc.next();
-        //System.out.println(AnsiEscapeCodesAction.getCursorDownCode(15));
+        System.out.println(AnsiEscapeCodesAction.getCursorDownCode(15));
     }
 
     private void handleMatrixAction(String action, int actionCount) {

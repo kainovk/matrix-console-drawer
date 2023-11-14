@@ -11,7 +11,7 @@ public class CommonMatrix<T extends Number> extends AbstractMatrix<T> {
     }
 
     @Override
-    protected Vector<T> createVector(int size) {
+    public Vector<T> createVector(int size) {
         return new CommonVector<>(size);
     }
 }

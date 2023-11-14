@@ -1,5 +1,7 @@
-package matrix;
+package matrix.decorator;
 
+import matrix.AbstractMatrix;
+import matrix.Matrix;
 import vector.Vector;
 
 import java.util.ArrayList;
@@ -94,7 +96,7 @@ public class EnumeratedMatrixDecorator<T extends Number> implements Matrix<T> {
             }
 
             @Override
-            protected Vector<T> createVector(int size) {
+            public Vector<T> createVector(int size) {
                 return originalMatrix.createVector(size);
             }
         };

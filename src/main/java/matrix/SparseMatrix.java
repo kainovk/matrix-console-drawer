@@ -11,22 +11,7 @@ public class SparseMatrix<T extends Number> extends AbstractMatrix<T> {
     }
 
     @Override
-    protected Vector<T> createVector(int size) {
+    public Vector<T> createVector(int size) {
         return new SparseVector<>(size);
-    }
-
-    @Override
-    public String getElementToDraw(int row, int col) {
-        T value = get(row, col);
-
-        if (value.doubleValue() == 0.00) {
-            return " ";
-        }
-
-        if (value instanceof Integer) {
-            return String.format("%d", value);
-        } else {
-            return String.format("%.2f", value);
-        }
     }
 }

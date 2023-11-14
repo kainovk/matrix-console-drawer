@@ -1,12 +1,13 @@
 package matrix.drawer;
 
-import matrix.AbstractMatrix;
+import matrix.Matrix;
+import matrix.util.DrawerFormatter;
 import util.AnsiEscapeCodesAction;
 
 public class ConsoleMatrixDrawer<T extends Number> implements Drawer<T> {
 
     @Override
-    public void drawMatrix(AbstractMatrix<T> matrix) {
+    public void drawMatrix(Matrix<T> matrix) {
         int rowNum = matrix.getRowCount();
         int colNum = matrix.getColumnCount();
 
@@ -15,10 +16,10 @@ public class ConsoleMatrixDrawer<T extends Number> implements Drawer<T> {
         for (int i = 0; i < rowNum; i++) {
             System.out.print(AnsiEscapeCodesAction.getCursorRightCode(1));
             for (int j = 0; j < colNum - 1; j++) {
-                String element = matrix.getElementToDraw(i, j);
+                String element = DrawerFormatter.getElementToDraw(matrix, i, j);
                 System.out.printf("%7s ", element);
             }
-            String element = matrix.getElementToDraw(i, colNum - 1);
+            String element = DrawerFormatter.getElementToDraw(matrix, i, colNum - 1);
             System.out.printf("%7s", element);
             System.out.print(AnsiEscapeCodesAction.getCursorDownCode(1));
             System.out.print(AnsiEscapeCodesAction.getCursorAtColumnCode(1));

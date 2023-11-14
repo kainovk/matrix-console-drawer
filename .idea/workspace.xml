@@ -5,17 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb1dc997-d27c-4b8b-8499-2eed431eecb8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/TransposeMatrixDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/util/DrawerFormatter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/AbstractMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/AbstractMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/CommonMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/CommonMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/EnumeratedMatrixDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/EnumeratedMatrixDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/HorizontalMatrixGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/HorizontalMatrixGroup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/SparseMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/SparseMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/TransposeMatrixDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/VerticalMatrixGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/VerticalMatrixGroup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/drawer/ConsoleMatrixDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/ConsoleMatrixDrawer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/drawer/Drawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/Drawer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/drawer/HtmlMatrixDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/HtmlMatrixDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/AnsiEscapeCodesAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AnsiEscapeCodesAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +45,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -94,11 +97,11 @@
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="EnumeratedMatrixDecorator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="matrix.EnumeratedMatrixDecorator" />
+      <option name="MAIN_CLASS_NAME" value="matrix.decorator.EnumeratedMatrixDecorator" />
       <module name="patterns-1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="matrix.*" />
+          <option name="PATTERN" value="matrix.decorator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -155,6 +158,13 @@
       <workItem from="1698905764553" duration="4426000" />
       <workItem from="1698919374871" duration="9000" />
       <workItem from="1699186632335" duration="24112000" />
+      <workItem from="1699425528786" duration="109000" />
+      <workItem from="1699617663745" duration="24000" />
+      <workItem from="1699635153373" duration="1753000" />
+      <workItem from="1699709722829" duration="4252000" />
+      <workItem from="1699726242587" duration="4688000" />
+      <workItem from="1699774793102" duration="1965000" />
+      <workItem from="1699950324829" duration="5947000" />
     </task>
     <servers />
   </component>
@@ -181,8 +191,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java</url>
-          <line>105</line>
-          <option name="timeStamp" value="4" />
+          <line>106</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

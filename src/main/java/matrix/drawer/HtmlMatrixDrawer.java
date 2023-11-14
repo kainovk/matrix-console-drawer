@@ -1,6 +1,7 @@
 package matrix.drawer;
 
-import matrix.AbstractMatrix;
+import matrix.Matrix;
+import matrix.util.DrawerFormatter;
 import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -20,7 +21,7 @@ public class HtmlMatrixDrawer<T extends Number> implements Drawer<T> {
     private final String BORDER_RIGHT = "border-right: 1px solid black;";
 
     @Override
-    public void drawMatrix(AbstractMatrix<T> matrix) {
+    public void drawMatrix(Matrix<T> matrix) {
         try {
             Document doc = loadDocument();
             Element matrixDiv = getOrCreateElement(doc, "matrix");
@@ -103,14 +104,15 @@ public class HtmlMatrixDrawer<T extends Number> implements Drawer<T> {
         return table;
     }
 
-    private void updateTableCells(AbstractMatrix<T> matrix, Element table) {
+    private void updateTableCells(Matrix<T> matrix, Element table) {
         Elements rows = table.select("tr");
         for (int i = 0; i < matrix.getRowCount(); i++) {
             Element row = rows.get(i);
             Elements cells = row.select("td");
             for (int j = 0; j < matrix.getColumnCount(); j++) {
                 Element cell = cells.get(j);
-                cell.text(matrix.getElementToDraw(i, j));
+                String element = DrawerFormatter.getElementToDraw(matrix, i, j);
+                cell.text(element);
             }
         }
     }
