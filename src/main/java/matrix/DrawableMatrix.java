@@ -1,16 +1,10 @@
 package matrix;
 
-import matrix.drawer.Drawer;
+import matrix.drawer.handler.MatrixDrawHandler;
 
 public interface DrawableMatrix<T extends Number> extends Matrix<T> {
 
-    void draw();
+    void draw(MatrixDrawHandler<T> drawHandler);
 
-    void drawBorders(int dx, int dy);
-
-    void hideBorders();
-
-    default Drawer<T> getDrawer() {
-        return null;
-    }
+    String getDrawableValue(int row, int col);
 }

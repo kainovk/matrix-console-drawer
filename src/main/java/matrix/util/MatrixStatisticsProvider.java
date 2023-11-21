@@ -36,6 +36,16 @@ public class MatrixStatisticsProvider<T extends Number> {
         return max;
     }
 
+    public T getMin() {
+        T min = matrix.get(0, 0);
+        for (int i = 0; i < matrix.getRowCount(); i++) {
+            for (int j = 0; j < matrix.getColumnCount(); j++) {
+                min = compare(min, matrix.get(i, j)) < 0 ? min : matrix.get(i, j);
+            }
+        }
+        return min;
+    }
+
     public int getNonZeroCount() {
         int count = 0;
         for (int i = 0; i < matrix.getRowCount(); i++) {

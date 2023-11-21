@@ -18,7 +18,7 @@ public class MatrixInitializer {
 
         List<T> values = new ArrayList<>(totalElements);
 
-        for (int i = 0; i < nonZeroCount; i++) {
+        for (int i = 0; i < Math.min(nonZeroCount, totalElements); i++) {
             double randomValue = rand.nextDouble() * maxValue.doubleValue();
             if (maxValue instanceof Integer) {
                 values.add((T) Integer.valueOf((int) randomValue));

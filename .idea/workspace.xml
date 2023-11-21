@@ -5,20 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb1dc997-d27c-4b8b-8499-2eed431eecb8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/TransposeMatrixDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/util/DrawerFormatter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/composite/HorizontalMatrixGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/composite/VerticalMatrixGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/AbstractMatrixDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/AbstractDrawer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/handler/MatrixDrawHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/handler/MatrixDrawHandlerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/AbstractMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/AbstractMatrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/CommonMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/CommonMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/EnumeratedMatrixDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/EnumeratedMatrixDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/HorizontalMatrixGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/HorizontalMatrixGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/DrawableMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/DrawableMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/HorizontalMatrixGroup.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/SparseMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/SparseMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/TransposeMatrixDecorator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/VerticalMatrixGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/VerticalMatrixGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/VerticalMatrixGroup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/decorator/EnumeratedMatrixDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/EnumeratedMatrixDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/decorator/TransposeMatrixDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/TransposeMatrixDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/drawer/ConsoleMatrixDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/ConsoleMatrixDrawer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/drawer/Drawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/Drawer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/drawer/HtmlMatrixDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/HtmlMatrixDrawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/util/DrawerFormatter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixStatisticsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixStatisticsProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/AnsiEscapeCodesAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AnsiEscapeCodesAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vector/CommonVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vector/CommonVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vector/SparseVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vector/SparseVector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +76,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;git-widget-placeholder&quot;: &quot;feature/composite&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kirill/.m2/repository/org/jsoup/jsoup/1.15.3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kirill/IdeaProjects/fireworks&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -73,12 +85,13 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="matrix.drawer" />
       <recent name="hasan" />
       <recent name="matrix.border" />
       <recent name="matrix" />
@@ -164,7 +177,16 @@
       <workItem from="1699709722829" duration="4252000" />
       <workItem from="1699726242587" duration="4688000" />
       <workItem from="1699774793102" duration="1965000" />
-      <workItem from="1699950324829" duration="5947000" />
+      <workItem from="1699950324829" duration="7571000" />
+      <workItem from="1700057922152" duration="6171000" />
+      <workItem from="1700150368870" duration="132000" />
+      <workItem from="1700315205213" duration="2940000" />
+      <workItem from="1700377100493" duration="21177000" />
+      <workItem from="1700418094530" duration="18000" />
+      <workItem from="1700420440049" duration="1000" />
+      <workItem from="1700467155813" duration="2858000" />
+      <workItem from="1700479813671" duration="267000" />
+      <workItem from="1700589216226" duration="455000" />
     </task>
     <servers />
   </component>
@@ -191,8 +213,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="5" />
+          <line>59</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

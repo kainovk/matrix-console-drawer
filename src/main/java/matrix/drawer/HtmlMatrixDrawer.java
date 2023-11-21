@@ -1,7 +1,6 @@
 package matrix.drawer;
 
-import matrix.Matrix;
-import matrix.util.DrawerFormatter;
+import matrix.DrawableMatrix;
 import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -12,7 +11,7 @@ import org.jsoup.select.Elements;
 import java.io.File;
 import java.io.IOException;
 
-public class HtmlMatrixDrawer<T extends Number> implements Drawer<T> {
+public class HtmlMatrixDrawer<T extends Number> extends AbstractDrawer<T> {
 
     private final String HTML_FILE_NAME = "src/main/resources/template/matrix.html";
     private final String BORDER_TOP = "border-top: 1px solid black;";
@@ -20,7 +19,11 @@ public class HtmlMatrixDrawer<T extends Number> implements Drawer<T> {
     private final String BORDER_LEFT = "border-left: 1px solid black;";
     private final String BORDER_RIGHT = "border-right: 1px solid black;";
 
-    @Override
+    public HtmlMatrixDrawer(boolean bordersActive) {
+        super(bordersActive);
+    }
+
+    /*@Override
     public void drawMatrix(Matrix<T> matrix) {
         try {
             Document doc = loadDocument();
@@ -33,10 +36,13 @@ public class HtmlMatrixDrawer<T extends Number> implements Drawer<T> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     @Override
-    public void drawBorders(int width, int height, int dx, int dy) {
+    public void drawBorders(DrawableMatrix<T> matrix, int dx, int dy) {
+        int height = matrix.getRowCount();
+        int width = matrix.getColumnCount();
+
         try {
             Document doc = loadDocument();
             Element matrixDiv = getOrCreateElement(doc, "matrix");
@@ -51,7 +57,10 @@ public class HtmlMatrixDrawer<T extends Number> implements Drawer<T> {
     }
 
     @Override
-    public void hideBorders(int width, int height, int dx, int dy) {
+    public void hideBorders(DrawableMatrix<T> matrix, int dx, int dy) {
+        int height = matrix.getRowCount();
+        int width = matrix.getColumnCount();
+
         try {
             Document doc = loadDocument();
             Element table = getTableIfExists(doc);
@@ -66,8 +75,11 @@ public class HtmlMatrixDrawer<T extends Number> implements Drawer<T> {
     }
 
     @Override
-    public void moveCursor(int dx, int dy) {
-        // TODO
+    public void moveCursor(int dx, int dy) {}
+
+    @Override
+    public void drawElement(DrawableMatrix<T> matrix, int row, int col) {
+
     }
 
     private Document loadDocument() throws IOException {
@@ -104,14 +116,14 @@ public class HtmlMatrixDrawer<T extends Number> implements Drawer<T> {
         return table;
     }
 
-    private void updateTableCells(Matrix<T> matrix, Element table) {
+    private void updateTableCells(DrawableMatrix<T> matrix, Element table) {
         Elements rows = table.select("tr");
         for (int i = 0; i < matrix.getRowCount(); i++) {
             Element row = rows.get(i);
             Elements cells = row.select("td");
             for (int j = 0; j < matrix.getColumnCount(); j++) {
                 Element cell = cells.get(j);
-                String element = DrawerFormatter.getElementToDraw(matrix, i, j);
+                String element = matrix.getDrawableValue(i, j);
                 cell.text(element);
             }
         }

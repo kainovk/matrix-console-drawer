@@ -1,17 +1,11 @@
 package matrix;
 
-import matrix.drawer.Drawer;
+import matrix.drawer.handler.MatrixDrawHandler;
 import vector.Vector;
 
 public abstract class AbstractMatrix<T extends Number> implements DrawableMatrix<T> {
 
     protected Vector<T>[] rows;
-
-    private Drawer<T> drawer;
-
-    protected AbstractMatrix(Drawer<T> drawer) {
-        this.drawer = drawer;
-    }
 
     protected AbstractMatrix(int numRows, int numCols) {
         rows = new Vector[numRows];
@@ -20,36 +14,9 @@ public abstract class AbstractMatrix<T extends Number> implements DrawableMatrix
         }
     }
 
-    protected AbstractMatrix(int numRows, int numCols, Drawer<T> drawer) {
-        this(numRows, numCols);
-        this.drawer = drawer;
-    }
-
     public abstract Vector<T> createVector(int size);
 
-    @Override
-    public void draw() {
-        drawer.drawMatrix(this);
-    }
-
-    @Override
-    public void drawBorders(int dx, int dy) {
-        int width = rows[0].getSize();
-        int height = rows.length;
-        drawer.drawBorders(width, height, dx, dy);
-    }
-
-    @Override
-    public void hideBorders() {
-        int width = rows[0].getSize();
-        int height = rows.length;
-        drawer.hideBorders(2 + width, 2 + height, 0, 2 + height);
-    }
-
-    @Override
-    public Drawer<T> getDrawer() {
-        return drawer;
-    }
+    protected abstract String getDrawableElement(int row, int col);
 
     @Override
     public int getRowCount() {
@@ -69,5 +36,15 @@ public abstract class AbstractMatrix<T extends Number> implements DrawableMatrix
     @Override
     public void set(int row, int col, T value) {
         rows[row].set(col, value);
+    }
+
+    @Override
+    public void draw(MatrixDrawHandler<T> drawHandler) {
+        drawHandler.draw(this);
+    }
+
+    @Override
+    public String getDrawableValue(int row, int col) {
+        return getDrawableElement(row, col);
     }
 }
