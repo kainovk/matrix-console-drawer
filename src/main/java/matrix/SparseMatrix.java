@@ -1,25 +1,24 @@
 package matrix;
 
-import matrix.drawer.Drawer;
 import vector.SparseVector;
 import vector.Vector;
 
 public class SparseMatrix<T extends Number> extends AbstractMatrix<T> {
 
-    public SparseMatrix(int numRows, int numCols, Drawer<T> drawer) {
-        super(numRows, numCols, drawer);
+    public SparseMatrix(int numRows, int numCols) {
+        super(numRows, numCols);
     }
 
     @Override
-    protected Vector<T> createVector(int size) {
+    public Vector<T> createVector(int size) {
         return new SparseVector<>(size);
     }
 
     @Override
-    public String getElementToDraw(int row, int col) {
+    protected String getDrawableElement(int row, int col) {
         T value = get(row, col);
 
-        if (value.doubleValue() == 0.00) {
+        if (value.doubleValue() == 0.0) {
             return " ";
         }
 

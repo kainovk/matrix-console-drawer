@@ -10,28 +10,28 @@ public class AnsiEscapeCodesAction {
         if (n > 0) {
             return CURSOR_MOVE + n + "A";
         }
-        return null;
+        return "";
     }
 
     public static String getCursorDownCode(int n) {
         if (n > 0) {
             return CURSOR_MOVE + n + "B";
         }
-        return null;
+        return "";
     }
 
     public static String getCursorRightCode(int n) {
         if (n > 0) {
             return CURSOR_MOVE + n + "C";
         }
-        return null;
+        return "";
     }
 
     public static String getCursorLeftCode(int n) {
         if (n > 0) {
             System.out.print(CURSOR_MOVE + n + "D");
         }
-        return null;
+        return "";
     }
 
     public static String getClearUpperLineCode() {
@@ -40,5 +40,13 @@ public class AnsiEscapeCodesAction {
 
     public static String getCursorAtColumnCode(int n) {
         return CURSOR_MOVE + n + "G";
+    }
+
+    public static String saveCurrentCursorPosition() {
+        return CURSOR_MOVE + "s";
+    }
+
+    public static String restoreSavedCursorPosition() {
+        return CURSOR_MOVE + "u";
     }
 }

@@ -1,12 +1,14 @@
 package matrix.drawer;
 
-import matrix.AbstractMatrix;
+import matrix.DrawableMatrix;
 
 public interface Drawer<T extends Number> {
 
-    void drawMatrix(AbstractMatrix<T> matrix);
+    void drawBorders(DrawableMatrix<T> matrix, int dx, int dy);
 
-    void drawBorders(int width, int height, int dx, int dy);
+    void hideBorders(DrawableMatrix<T> matrix, int dx, int dy);
 
-    void hideBorders(int width, int height, int dx, int dy);
+    void moveCursor(int dx, int dy);
+
+    void drawElement(DrawableMatrix<T> matrix, int row, int col);
 }

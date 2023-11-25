@@ -1,38 +1,29 @@
 package matrix.drawer;
 
-import matrix.AbstractMatrix;
+import matrix.DrawableMatrix;
 import util.AnsiEscapeCodesAction;
 
-public class ConsoleMatrixDrawer<T extends Number> implements Drawer<T> {
+public class ConsoleMatrixDrawer<T extends Number> extends AbstractDrawer<T> {
 
-    @Override
-    public void drawMatrix(AbstractMatrix<T> matrix) {
-        int rowNum = matrix.getRowCount();
-        int colNum = matrix.getColumnCount();
-
-        System.out.print(AnsiEscapeCodesAction.getCursorUpCode(rowNum + 1));
-
-        for (int i = 0; i < rowNum; i++) {
-            System.out.print(AnsiEscapeCodesAction.getCursorRightCode(1));
-            for (int j = 0; j < colNum - 1; j++) {
-                String element = matrix.getElementToDraw(i, j);
-                System.out.printf("%7s ", element);
-            }
-            String element = matrix.getElementToDraw(i, colNum - 1);
-            System.out.printf("%7s", element);
-            System.out.print(AnsiEscapeCodesAction.getCursorDownCode(1));
-            System.out.print(AnsiEscapeCodesAction.getCursorAtColumnCode(1));
-        }
-
-        System.out.print(AnsiEscapeCodesAction.getCursorDownCode(1));
+    public ConsoleMatrixDrawer(boolean bordersActive) {
+        super(bordersActive);
     }
 
     @Override
-    public void drawBorders(int width, int height, int dx, int dy) {
+    public void drawBorders(DrawableMatrix<T> matrix, int dx, int dy) {
+        if (bordersActive) {
+            hideBorders(matrix, dx, dy);
+            return;
+        }
+
+        int height = matrix.getRowCount();
+        int cellWidth = getCellSize(matrix);
+        int cellCount = matrix.getColumnCount();
+
         System.out.print(AnsiEscapeCodesAction.getCursorUpCode(dy));
         System.out.print(AnsiEscapeCodesAction.getCursorAtColumnCode(0));
 
-        String border = createHorizontalBorderString(width, dx);
+        String border = createHorizontalBorderString(cellCount, cellWidth, dx);
         System.out.print(border);
 
         System.out.print(AnsiEscapeCodesAction.getCursorAtColumnCode(1));
@@ -42,7 +33,14 @@ public class ConsoleMatrixDrawer<T extends Number> implements Drawer<T> {
     }
 
     @Override
-    public void hideBorders(int width, int height, int dx, int dy) {
+    public void hideBorders(DrawableMatrix<T> matrix, int dx, int dy) {
+        if (!bordersActive) {
+            drawBorders(matrix, dx, dy);
+            return;
+        }
+
+        int height = matrix.getRowCount();
+
         String clearUpperLineCode = AnsiEscapeCodesAction.getClearUpperLineCode();
         System.out.print(clearUpperLineCode);
         System.out.print(AnsiEscapeCodesAction.getCursorUpCode(dy - 2));
@@ -52,13 +50,35 @@ public class ConsoleMatrixDrawer<T extends Number> implements Drawer<T> {
         System.out.print(AnsiEscapeCodesAction.getCursorDownCode(height));
     }
 
-    private String createHorizontalBorderString(int width, int dx) {
+    @Override
+    public void moveCursor(int dx, int dy) {
+        if (dx > 0) {
+            System.out.print(AnsiEscapeCodesAction.getCursorRightCode(dx));
+        } else if (dx < 0) {
+            System.out.print(AnsiEscapeCodesAction.getCursorLeftCode(-dx));
+        }
+
+        if (dy > 0) {
+            System.out.print(AnsiEscapeCodesAction.getCursorUpCode(dy));
+        } else if (dy < 0) {
+            System.out.print(AnsiEscapeCodesAction.getCursorDownCode(-dy));
+        }
+    }
+
+    @Override
+    public void drawElement(DrawableMatrix<T> matrix, int row, int col) {
+        String element = matrix.getDrawableValue(row, col);
+        int width = getCellSize(matrix);
+        System.out.printf("%" + width + "s", element);
+    }
+
+    private String createHorizontalBorderString(int count, int width, int dx) {
         StringBuilder border = new StringBuilder();
 
         border.append(" ".repeat(dx));
         border.append("+-");
-        for (int col = 0; col < width; col++) {
-            border.append("-".repeat(7));
+        for (int col = 0; col < count; col++) {
+            border.append("-".repeat(width - 1));
             border.append("+");
         }
 
