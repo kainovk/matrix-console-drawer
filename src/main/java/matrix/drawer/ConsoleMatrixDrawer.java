@@ -11,6 +11,11 @@ public class ConsoleMatrixDrawer<T extends Number> extends AbstractDrawer<T> {
 
     @Override
     public void drawBorders(DrawableMatrix<T> matrix, int dx, int dy) {
+        if (bordersActive) {
+            hideBorders(matrix, dx, dy);
+            return;
+        }
+
         int height = matrix.getRowCount();
         int cellWidth = getCellSize(matrix);
         int cellCount = matrix.getColumnCount();
@@ -29,6 +34,11 @@ public class ConsoleMatrixDrawer<T extends Number> extends AbstractDrawer<T> {
 
     @Override
     public void hideBorders(DrawableMatrix<T> matrix, int dx, int dy) {
+        if (!bordersActive) {
+            drawBorders(matrix, dx, dy);
+            return;
+        }
+
         int height = matrix.getRowCount();
 
         String clearUpperLineCode = AnsiEscapeCodesAction.getClearUpperLineCode();

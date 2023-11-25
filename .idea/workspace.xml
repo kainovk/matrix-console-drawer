@@ -5,32 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb1dc997-d27c-4b8b-8499-2eed431eecb8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/composite/HorizontalMatrixGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/composite/VerticalMatrixGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/AbstractMatrixDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/AbstractDrawer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/handler/MatrixDrawHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/handler/MatrixDrawHandlerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/AbstractMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/AbstractMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/CommonMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/CommonMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/DrawableMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/DrawableMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/HorizontalMatrixGroup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/SparseMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/SparseMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/VerticalMatrixGroup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/decorator/EnumeratedMatrixDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/EnumeratedMatrixDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/decorator/TransposeMatrixDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/TransposeMatrixDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/drawer/ConsoleMatrixDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/ConsoleMatrixDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/drawer/Drawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/Drawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/drawer/HtmlMatrixDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/HtmlMatrixDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/util/DrawerFormatter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixStatisticsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/util/MatrixStatisticsProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/AnsiEscapeCodesAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AnsiEscapeCodesAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vector/CommonVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vector/CommonVector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vector/SparseVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vector/SparseVector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +162,8 @@
       <workItem from="1700420440049" duration="1000" />
       <workItem from="1700467155813" duration="2858000" />
       <workItem from="1700479813671" duration="267000" />
-      <workItem from="1700589216226" duration="455000" />
+      <workItem from="1700589216226" duration="1782000" />
+      <workItem from="1700667123765" duration="9000" />
     </task>
     <servers />
   </component>
@@ -213,12 +190,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java</url>
-          <line>59</line>
+          <line>57</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java</url>
-          <line>105</line>
+          <line>103</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
