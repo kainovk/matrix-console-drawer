@@ -55,6 +55,7 @@ public class MatrixUI<T extends Number> {
 
         //Thread.sleep(Duration.ofSeconds(5).toMillis());
         cm.undo();
+        cm.undo();
 
         System.out.println("After undo last command:");
         verticalMatrixGroup.draw(consoleDrawer);

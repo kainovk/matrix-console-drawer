@@ -32,10 +32,11 @@ public class CM {
         if (commandsHistory.size() <= 1) return;
 
         block = true;
-        Command lastCommand = commandsHistory.pop();
-        for (Command command : commandsHistory) {
-            command.execute();
-        }
+        Command lastCommand = commandsHistory.peek();
+        if (!(lastCommand instanceof UndoableCommand)) return;
+
+        commandsHistory.pop();
+        ((UndoableCommand) lastCommand).undo();
         block = false;
     }
 }
