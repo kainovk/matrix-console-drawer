@@ -1,5 +1,8 @@
 package matrix;
 
+import matrix.command.CM;
+import matrix.command.commands.CommandChangeValue;
+import matrix.command.commands.CommandInit;
 import matrix.composite.HorizontalMatrixGroup;
 import matrix.composite.VerticalMatrixGroup;
 import matrix.decorator.EnumeratedMatrixDecorator;
@@ -9,7 +12,11 @@ import matrix.drawer.handler.MatrixDrawHandlerImpl;
 import matrix.util.MatrixInitializer;
 import util.AnsiEscapeCodesAction;
 
+import java.time.Duration;
+
 public class MatrixUI<T extends Number> {
+
+    private static final CM cm = CM.instance();
 
     private DrawableMatrix<T> matrix;
     private final int numRows;
@@ -19,12 +26,38 @@ public class MatrixUI<T extends Number> {
     private String lastAction;
 
     public MatrixUI(MatrixParameters<T> params) {
+        MatrixUI.cm.registry(new CommandInit());
         this.numRows = params.getNumRows();
         this.numCols = params.getNumCols();
         this.maxValue = params.getMaxValue();
         this.matrix = null;
         this.bordersActive = true;
         this.lastAction = null;
+    }
+
+    public void runCommandExample() throws InterruptedException {
+        boolean bordersActive = true;
+        MatrixDrawHandler<Integer> consoleDrawer = new MatrixDrawHandlerImpl<>(
+                new ConsoleMatrixDrawer<>(bordersActive)
+        );
+
+        int maxValue = 9999;
+        int nonZeroCount = Integer.MAX_VALUE;
+        VerticalMatrixGroup<Integer> verticalMatrixGroup = prepareVerticalMatrixGroup(maxValue, nonZeroCount);
+        verticalMatrixGroup.draw(consoleDrawer);
+
+        //Thread.sleep(Duration.ofSeconds(5).toMillis());
+        cm.registry(new CommandChangeValue<>(verticalMatrixGroup, new int[]{1, 2}, 7331));
+        cm.registry(new CommandChangeValue<>(verticalMatrixGroup, new int[]{3, 3}, 7332));
+
+        System.out.println("After changing:");
+        verticalMatrixGroup.draw(consoleDrawer);
+
+        //Thread.sleep(Duration.ofSeconds(5).toMillis());
+        cm.undo();
+
+        System.out.println("After undo last command:");
+        verticalMatrixGroup.draw(consoleDrawer);
     }
 
     public void runDecoratorExample() {
@@ -67,6 +100,12 @@ public class MatrixUI<T extends Number> {
         int maxValue = 9999;
         int nonZeroCount = Integer.MAX_VALUE;
 
+        VerticalMatrixGroup<Integer> verticalMatrixGroup = prepareVerticalMatrixGroup(maxValue, nonZeroCount);
+
+        verticalMatrixGroup.draw(matrixDrawHandler);
+    }
+
+    private VerticalMatrixGroup<Integer> prepareVerticalMatrixGroup(int maxValue, int nonZeroCount) {
         DrawableMatrix<Integer> commonMatrix11 = new CommonMatrix<>(2, 2);
         MatrixInitializer.initialize(commonMatrix11, nonZeroCount, maxValue);
 
@@ -100,8 +139,7 @@ public class MatrixUI<T extends Number> {
         verticalMatrixGroupMain.addMatrix(horizontalMatrixGroup1);
         verticalMatrixGroupMain.addMatrix(horizontalMatrixGroup2);
         verticalMatrixGroupMain.addMatrix(commonMatrix31);
-
-        verticalMatrixGroupMain.draw(matrixDrawHandler);
+        return verticalMatrixGroupMain;
     }
 
     private void handleMatrixAction(String action, int actionCount) {

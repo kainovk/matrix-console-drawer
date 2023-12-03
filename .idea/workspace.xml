@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb1dc997-d27c-4b8b-8499-2eed431eecb8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/command/AbstractCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/command/CM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/command/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/drawer/ConsoleMatrixDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/drawer/ConsoleMatrixDrawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +55,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/composite&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/undo&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Kirill/IdeaProjects/fireworks&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -67,11 +71,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="matrix.command" />
       <recent name="matrix.drawer" />
       <recent name="hasan" />
       <recent name="matrix.border" />
       <recent name="matrix" />
-      <recent name="vector" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Kirill\IdeaProjects\patterns-1" />
@@ -164,6 +168,9 @@
       <workItem from="1700479813671" duration="267000" />
       <workItem from="1700589216226" duration="1782000" />
       <workItem from="1700667123765" duration="9000" />
+      <workItem from="1700902481401" duration="8022000" />
+      <workItem from="1700923750117" duration="1306000" />
+      <workItem from="1701623345416" duration="443000" />
     </task>
     <servers />
   </component>
@@ -190,13 +197,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java</url>
-          <line>57</line>
+          <line>90</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
