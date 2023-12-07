@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bb1dc997-d27c-4b8b-8499-2eed431eecb8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/command/CM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/command/CM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/command/commands/CommandChangeValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/command/commands/CommandChangeValue.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,12 +167,39 @@
       <workItem from="1700667123765" duration="9000" />
       <workItem from="1700902481401" duration="8022000" />
       <workItem from="1700923750117" duration="1306000" />
-      <workItem from="1701623345416" duration="1393000" />
+      <workItem from="1701623345416" duration="1480000" />
+      <workItem from="1701772260017" duration="15000" />
+      <workItem from="1701797636807" duration="336000" />
+      <workItem from="1701866902665" duration="1238000" />
+      <workItem from="1701960391143" duration="1289000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/feature/undo" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -195,7 +221,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java</url>
-          <line>91</line>
+          <line>154</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>

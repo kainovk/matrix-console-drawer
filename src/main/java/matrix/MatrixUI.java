@@ -13,6 +13,8 @@ import matrix.util.MatrixInitializer;
 import util.AnsiEscapeCodesAction;
 
 import java.time.Duration;
+import java.util.Random;
+import java.util.Scanner;
 
 public class MatrixUI<T extends Number> {
 
@@ -24,6 +26,8 @@ public class MatrixUI<T extends Number> {
     private final T maxValue;
     private boolean bordersActive;
     private String lastAction;
+    private VerticalMatrixGroup<Integer> verticalMatrixGroup = null;
+    private Random rand = new Random();
 
     public MatrixUI(MatrixParameters<T> params) {
         MatrixUI.cm.registry(new CommandInit());
@@ -33,6 +37,66 @@ public class MatrixUI<T extends Number> {
         this.matrix = null;
         this.bordersActive = true;
         this.lastAction = null;
+    }
+
+    public void runUndoExample() {
+        boolean bordersActive = true;
+        MatrixDrawHandler<Integer> matrixDrawHandler = new MatrixDrawHandlerImpl<>(
+                new ConsoleMatrixDrawer<>(bordersActive)
+        );
+
+        int maxValue = 9999;
+        int nonZeroCount = Integer.MAX_VALUE;
+
+        verticalMatrixGroup = prepareVerticalMatrixGroup(maxValue, nonZeroCount);
+
+        Scanner sc = new Scanner(System.in);
+        String action = "";
+        while (!action.equals("exit")) {
+            printCommands();
+            action = sc.nextLine();
+            handleMatrixAction2(action, matrixDrawHandler);
+        }
+    }
+
+    private void handleMatrixAction2(String action, MatrixDrawHandler<Integer> matrixDrawHandler) {
+        switch (action) {
+            case "1":
+                verticalMatrixGroup = prepareVerticalMatrixGroup(1000, 1000);
+                verticalMatrixGroup.draw(matrixDrawHandler);
+                break;
+            case "2":
+                int newValue = rand.nextInt(1000) + 1000;
+                changeRandomCell(newValue);
+                verticalMatrixGroup.draw(matrixDrawHandler);
+                break;
+            case "3":
+                cm.undo();
+                verticalMatrixGroup.draw(matrixDrawHandler);
+                break;
+            default:
+                return;
+        }
+
+        lastAction = action;
+    }
+
+    private void changeRandomCell(int newValue) {
+        int rowCount = verticalMatrixGroup.getRowCount();
+        int columnCount = verticalMatrixGroup.getColumnCount();
+
+        int rowIndex = rand.nextInt(rowCount);
+        int columnIndex = rand.nextInt(columnCount);
+
+        CommandChangeValue<Integer> changeValue =
+                new CommandChangeValue<>(verticalMatrixGroup, new int[]{rowIndex, columnIndex}, newValue);
+        cm.registry(changeValue);
+    }
+
+    private void printCommands() {
+        System.out.println("1. Создать новую матрицу");
+        System.out.println("2. Изменить случайное значение матрицы");
+        System.out.println("3. Отменить");
     }
 
     public void runCommandExample() throws InterruptedException {
