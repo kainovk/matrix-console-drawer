@@ -9,10 +9,10 @@ import matrix.decorator.EnumeratedMatrixDecorator;
 import matrix.drawer.ConsoleMatrixDrawer;
 import matrix.drawer.handler.MatrixDrawHandler;
 import matrix.drawer.handler.MatrixDrawHandlerImpl;
+import matrix.observer.SummingRowObserver;
 import matrix.util.MatrixInitializer;
 import util.AnsiEscapeCodesAction;
 
-import java.time.Duration;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,7 +20,8 @@ public class MatrixUI<T extends Number> {
 
     private static final CM cm = CM.instance();
 
-    private DrawableMatrix<T> matrix;
+    private SummingRowObserver<Integer> summingPassiveObserver;
+    private CommonMatrix<Integer> matrix;
     private final int numRows;
     private final int numCols;
     private final T maxValue;
@@ -37,6 +38,95 @@ public class MatrixUI<T extends Number> {
         this.matrix = null;
         this.bordersActive = true;
         this.lastAction = null;
+    }
+
+    public void runPassiveObserverExample() {
+        boolean bordersActive = true;
+        MatrixDrawHandler<Integer> matrixDrawHandler = new MatrixDrawHandlerImpl<>(
+                new ConsoleMatrixDrawer<>(bordersActive)
+        );
+
+        matrix = new CommonMatrix<>(4, 3);
+        summingPassiveObserver = new SummingRowObserver<>(matrix);
+
+        Scanner sc = new Scanner(System.in);
+        String action = "";
+        while (!action.equals("exit")) {
+            printCommands();
+            action = sc.nextLine();
+            handleMatrixActionMatrix(action, matrixDrawHandler);
+        }
+    }
+
+    private void handleMatrixActionMatrix(String action,
+                                          MatrixDrawHandler<Integer> matrixDrawHandler) {
+        switch (action) {
+            case "1":
+                matrix = new CommonMatrix<>(4, 3);
+                MatrixInitializer.initialize(matrix, 1000, 20);
+                summingPassiveObserver.attach(matrix);
+                break;
+            case "2":
+                int newValue = rand.nextInt(1000) + 1000;
+                changeRandomCellMatrix(newValue);
+                break;
+            case "3":
+                cm.undo();
+                break;
+            default:
+                return;
+        }
+        matrix.draw(matrixDrawHandler);
+        System.out.println("Summing matrix:");
+        summingPassiveObserver.getState().draw(matrixDrawHandler);
+
+        lastAction = action;
+    }
+
+    public void runPassiveObserverExampleComposite() {
+        boolean bordersActive = true;
+        MatrixDrawHandler<Integer> matrixDrawHandler = new MatrixDrawHandlerImpl<>(
+                new ConsoleMatrixDrawer<>(bordersActive)
+        );
+
+        int maxValue = 9999;
+        int nonZeroCount = Integer.MAX_VALUE;
+
+        verticalMatrixGroup = prepareVerticalMatrixGroup2(50, 1000);
+        summingPassiveObserver = new SummingRowObserver<>(verticalMatrixGroup);
+
+        Scanner sc = new Scanner(System.in);
+        String action = "";
+        while (!action.equals("exit")) {
+            printCommands();
+            action = sc.nextLine();
+            handleMatrixAction3(action, matrixDrawHandler);
+        }
+    }
+
+    private void handleMatrixAction3(String action,
+                                     MatrixDrawHandler<Integer> matrixDrawHandler) {
+        switch (action) {
+            case "1":
+                verticalMatrixGroup = prepareVerticalMatrixGroup2(50, 1000);
+                summingPassiveObserver = new SummingRowObserver<>(verticalMatrixGroup);
+                break;
+            case "2":
+                int newValue = rand.nextInt(500) + 100;
+                changeRandomCell(newValue);
+                break;
+            case "3":
+                cm.undo();
+                break;
+            default:
+                return;
+        }
+        verticalMatrixGroup.draw(matrixDrawHandler);
+        System.out.println("Summing matrix:");
+        DrawableMatrix<Integer> state = summingPassiveObserver.getState();
+        state.draw(matrixDrawHandler);
+
+        lastAction = action;
     }
 
     public void runUndoExample() {
@@ -79,6 +169,18 @@ public class MatrixUI<T extends Number> {
         }
 
         lastAction = action;
+    }
+
+    private void changeRandomCellMatrix(int newValue) {
+        int rowCount = matrix.getRowCount();
+        int columnCount = matrix.getColumnCount();
+
+        int rowIndex = rand.nextInt(rowCount);
+        int columnIndex = rand.nextInt(columnCount);
+
+        CommandChangeValue<Integer> changeValue =
+                new CommandChangeValue<>(matrix, new int[]{rowIndex, columnIndex}, newValue);
+        cm.registry(changeValue);
     }
 
     private void changeRandomCell(int newValue) {
@@ -170,6 +272,21 @@ public class MatrixUI<T extends Number> {
         verticalMatrixGroup.draw(matrixDrawHandler);
     }
 
+    private VerticalMatrixGroup<Integer> prepareVerticalMatrixGroup2(int maxValue, int nonZeroCount) {
+        DrawableMatrix<Integer> commonMatrix11 = new CommonMatrix<>(2, 2);
+        MatrixInitializer.initialize(commonMatrix11, nonZeroCount, maxValue);
+
+        DrawableMatrix<Integer> commonMatrix12 = new CommonMatrix<>(2, 1);
+        MatrixInitializer.initialize(commonMatrix12, 4 * 3 / 2, maxValue);
+
+        // добавить одну сбоку последней в горизонтальную группу
+
+        VerticalMatrixGroup<Integer> verticalMatrixGroupMain = new VerticalMatrixGroup<>();
+        verticalMatrixGroupMain.addMatrix(commonMatrix11);
+        verticalMatrixGroupMain.addMatrix(commonMatrix12);
+        return verticalMatrixGroupMain;
+    }
+
     private VerticalMatrixGroup<Integer> prepareVerticalMatrixGroup(int maxValue, int nonZeroCount) {
         DrawableMatrix<Integer> commonMatrix11 = new CommonMatrix<>(2, 2);
         MatrixInitializer.initialize(commonMatrix11, nonZeroCount, maxValue);
@@ -207,7 +324,7 @@ public class MatrixUI<T extends Number> {
         return verticalMatrixGroupMain;
     }
 
-    private void handleMatrixAction(String action, int actionCount) {
+    /*private void handleMatrixAction(String action, int actionCount) {
         System.out.print(AnsiEscapeCodesAction.getCursorUpCode(actionCount + 1));
 
         if (matrix == null || !action.equals(lastAction)) {
@@ -226,5 +343,5 @@ public class MatrixUI<T extends Number> {
             lastAction = action;
             System.out.print(AnsiEscapeCodesAction.getCursorDownCode(actionCount + 1));
         }
-    }
+    }*/
 }

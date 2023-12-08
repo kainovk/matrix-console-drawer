@@ -7,7 +7,13 @@
     <list default="true" id="bb1dc997-d27c-4b8b-8499-2eed431eecb8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/AbstractMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/AbstractMatrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/composite/HorizontalMatrixGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/composite/HorizontalMatrixGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/composite/VerticalMatrixGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/composite/VerticalMatrixGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/decorator/AbstractMatrixDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/AbstractMatrixDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/decorator/EnumeratedMatrixDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/EnumeratedMatrixDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/decorator/TransposeMatrixDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/decorator/TransposeMatrixDecorator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +58,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/undo&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/passive-observer&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Kirill/IdeaProjects/fireworks&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -171,7 +177,8 @@
       <workItem from="1701772260017" duration="15000" />
       <workItem from="1701797636807" duration="336000" />
       <workItem from="1701866902665" duration="1238000" />
-      <workItem from="1701960391143" duration="1289000" />
+      <workItem from="1701960391143" duration="11355000" />
+      <workItem from="1702014242439" duration="1464000" />
     </task>
     <servers />
   </component>
@@ -221,8 +228,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java</url>
-          <line>154</line>
+          <line>257</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/matrix/MatrixUI.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

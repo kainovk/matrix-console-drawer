@@ -1,10 +1,13 @@
 package matrix;
 
 import matrix.drawer.handler.MatrixDrawHandler;
+import matrix.observer.PassiveObservable;
 import vector.Vector;
 
-public abstract class AbstractMatrix<T extends Number> implements DrawableMatrix<T> {
+public abstract class AbstractMatrix<T extends Number>
+        implements DrawableMatrix<T>, PassiveObservable<T> {
 
+    private Long idState = Long.MIN_VALUE;
     protected Vector<T>[] rows;
 
     protected AbstractMatrix(int numRows, int numCols) {
@@ -36,6 +39,7 @@ public abstract class AbstractMatrix<T extends Number> implements DrawableMatrix
     @Override
     public void set(int row, int col, T value) {
         rows[row].set(col, value);
+        idState++;
     }
 
     @Override
@@ -46,5 +50,15 @@ public abstract class AbstractMatrix<T extends Number> implements DrawableMatrix
     @Override
     public String getDrawableValue(int row, int col) {
         return getDrawableElement(row, col);
+    }
+
+    @Override
+    public Long getIdState() {
+        return idState;
+    }
+
+    @Override
+    public DrawableMatrix<T> getState() {
+        return this;
     }
 }

@@ -2,12 +2,15 @@ package matrix.composite;
 
 import matrix.DrawableMatrix;
 import matrix.drawer.handler.MatrixDrawHandler;
+import matrix.observer.PassiveObservable;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class HorizontalMatrixGroup<T extends Number> implements DrawableMatrix<T> {
+public class HorizontalMatrixGroup<T extends Number>
+        implements DrawableMatrix<T>, PassiveObservable<T> {
 
+    private Long idState = Long.MIN_VALUE;
     private int matrixGroupIndex = -1;
     private final List<DrawableMatrix<T>> matrices;
 
@@ -17,6 +20,7 @@ public class HorizontalMatrixGroup<T extends Number> implements DrawableMatrix<T
 
     public void addMatrix(DrawableMatrix<T> matrix) {
         matrices.add(matrix);
+        idState++;
     }
 
     @Override
@@ -41,6 +45,7 @@ public class HorizontalMatrixGroup<T extends Number> implements DrawableMatrix<T
         }
 
         matrices.get(matrixGroupIndex).set(row, col, value);
+        idState++;
     }
 
     @Override
@@ -74,6 +79,16 @@ public class HorizontalMatrixGroup<T extends Number> implements DrawableMatrix<T
         }
 
         return matrices.get(matrixGroupIndex).getDrawableValue(row, col);
+    }
+
+    @Override
+    public Long getIdState() {
+        return idState;
+    }
+
+    @Override
+    public DrawableMatrix<T> getState() {
+        return this;
     }
 
     private T getDefaultValue() {

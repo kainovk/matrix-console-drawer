@@ -3,9 +3,12 @@ package matrix.composite;
 import matrix.DrawableMatrix;
 import matrix.decorator.TransposeMatrixDecorator;
 import matrix.drawer.handler.MatrixDrawHandler;
+import matrix.observer.PassiveObservable;
 
-public class VerticalMatrixGroup<T extends Number> implements DrawableMatrix<T> {
+public class VerticalMatrixGroup<T extends Number>
+        implements DrawableMatrix<T>, PassiveObservable<T> {
 
+    private Long idState = Long.MIN_VALUE;
     private final HorizontalMatrixGroup<T> horizontalGroup;
     private final TransposeMatrixDecorator<T> transposeDecorator;
 
@@ -16,6 +19,7 @@ public class VerticalMatrixGroup<T extends Number> implements DrawableMatrix<T> 
 
     public void addMatrix(DrawableMatrix<T> matrix) {
         horizontalGroup.addMatrix(new TransposeMatrixDecorator<>(matrix));
+        idState++;
     }
 
     @Override
@@ -26,6 +30,7 @@ public class VerticalMatrixGroup<T extends Number> implements DrawableMatrix<T> 
     @Override
     public void set(int row, int col, T value) {
         transposeDecorator.set(row, col, value);
+        idState++;
     }
 
     @Override
@@ -46,5 +51,15 @@ public class VerticalMatrixGroup<T extends Number> implements DrawableMatrix<T> 
     @Override
     public String getDrawableValue(int row, int col) {
         return transposeDecorator.getDrawableValue(row, col);
+    }
+
+    @Override
+    public Long getIdState() {
+        return idState;
+    }
+
+    @Override
+    public DrawableMatrix<T> getState() {
+        return this;
     }
 }

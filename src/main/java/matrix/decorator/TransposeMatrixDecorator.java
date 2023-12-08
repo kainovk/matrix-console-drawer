@@ -16,6 +16,7 @@ public class TransposeMatrixDecorator<T extends Number> extends AbstractMatrixDe
     @Override
     public void set(int row, int col, T value) {
         matrix.set(col, row, value);
+        idState++;
     }
 
     @Override

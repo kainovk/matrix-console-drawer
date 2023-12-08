@@ -19,12 +19,14 @@ public class EnumeratedMatrixDecorator<T extends Number> extends AbstractMatrixD
         int tmp = rowIndices[row1];
         rowIndices[row1] = rowIndices[row2];
         rowIndices[row2] = tmp;
+        idState++;
     }
 
     public void swapColumns(int col1, int col2) {
         int tmp = colIndices[col1];
         colIndices[col1] = colIndices[col2];
         colIndices[col2] = tmp;
+        idState++;
     }
 
     @Override
@@ -39,6 +41,7 @@ public class EnumeratedMatrixDecorator<T extends Number> extends AbstractMatrixD
         int rowIndex = rowIndices[row];
         int colIndex = colIndices[col];
         matrix.set(rowIndex, colIndex, value);
+        idState++;
     }
 
     @Override
